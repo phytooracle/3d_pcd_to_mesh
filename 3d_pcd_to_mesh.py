@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Author : emmanuelgonzalez
+Author : Emmanuel Gonzalez
 Date   : 2020-12-08
 Purpose: Convert point cloud (PLY format) to mesh
 """
@@ -18,7 +18,7 @@ def get_args():
     """Get command-line arguments"""
 
     parser = argparse.ArgumentParser(
-        description='Rock the Casbah',
+        description='Point cloud to mesh',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument('file',
