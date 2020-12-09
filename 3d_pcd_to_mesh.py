@@ -26,13 +26,6 @@ def get_args():
                         metavar='file',
                         help='Point cloud file (PLY format only)')
 
-    parser.add_argument('-a',
-                        '--alpha',
-                        help='Alpha for Poisson surface reconstruction',
-                        metavar='alpha',
-                        type=float,
-                        default=0.01)
-
     parser.add_argument('-v',
                         '--voxel_size',
                         help='Voxel size for downsampling',
@@ -44,14 +37,15 @@ def get_args():
                         '--surface_color',
                         help='Surface color',
                         metavar='color',
-                        type=str,
-                        choices=['R', 'G', 'B'])
+                        nargs='+',
+                        default=[0, 255, 0])
 
     parser.add_argument('-d',
                         '--depth',
                         help='Depth of the octree, i.e. resolution',
                         metavar='depth',
-                        default=9)
+                        type=int,
+                        default=10)
 
     parser.add_argument('-o',
                         '--outdir',
@@ -85,21 +79,12 @@ def surface_reconstruction(downpcd):
 
     print(f'Running Poisson surface reconstruction for {args.file}.')
 
-    colors = {
-            'R': [255, 0, 0],
-            'G': [0, 255, 0],
-            'B': [0, 0, 255]
-            }
-
     with o3d.utility.VerbosityContextManager(
             o3d.utility.VerbosityLevel.Debug) as cm:
         mesh, densities = o3d.geometry.TriangleMesh.create_from_point_cloud_poisson(
             downpcd, depth=args.depth)
 
-    print(colors.get(args.surface_color))
-    mesh = mesh.paint_uniform_color(str(colors.get(args.surface_color)))
-    #o3d.visualization.draw_geometries([mesh])
-
+    mesh = mesh.paint_uniform_color(np.array(args.surface_color))
     return mesh
 
 

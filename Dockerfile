@@ -21,4 +21,4 @@ RUN apt-get install -y python3.6-dev \
 RUN apt-get update
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT [ "/usr/bin/python3", "/opt/3d_pcd_to_mesh.py" ]
+ENTRYPOINT [ "python3", "/opt/3d_pcd_to_mesh.py" ]
