@@ -11,7 +11,12 @@ RUN apt-get install -y wget \
                        build-essential \
                        software-properties-common \
                        apt-utils \
-                       libgl1-mesa-glx
+                       libgl1-mesa-glx \
+                       ffmpeg \
+                       libsm6 \
+                       libxext6 \
+                       libffi-dev \
+                       libbz2-dev
 
 RUN wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
 RUN tar -xzf Python-3.8.5.tgz

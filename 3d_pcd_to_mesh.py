@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Author : Emmanuel Gonzalez
 Date   : 2020-12-08
