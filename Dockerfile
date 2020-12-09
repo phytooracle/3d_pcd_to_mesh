@@ -16,7 +16,8 @@ RUN apt-get install -y wget \
                        libsm6 \
                        libxext6 \
                        libffi-dev \
-                       libbz2-dev
+                       libbz2-dev \
+                       zlib1g-dev
 
 RUN wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
 RUN tar -xzf Python-3.8.5.tgz
