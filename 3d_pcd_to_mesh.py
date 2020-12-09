@@ -102,8 +102,7 @@ def process_pcd(pcd_path):
 
 # --------------------------------------------------
 def main():
-    """Make a jazz noise here"""
-
+    """Convert to mesh here"""
     args = get_args()
 
     if not os.path.isdir(args.outdir):
