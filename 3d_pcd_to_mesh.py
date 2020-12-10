@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 """
 Author : Emmanuel Gonzalez
 Date   : 2020-12-08
@@ -70,8 +70,9 @@ def open_downsample_pcd(pcd_path):
     pcd.estimate_normals()
 
     downpcd = pcd.voxel_down_sample(voxel_size=args.voxel_size)
+    bbox = pcd.get_axis_aligned_bounding_box()
 
-    return downpcd
+    return downpcd, bbox
 
 
 def surface_reconstruction(downpcd):
@@ -95,9 +96,10 @@ def process_pcd(pcd_path):
     f_name = os.path.basename(pcd_path)
     out_path = os.path.join(args.outdir, f_name).replace('.ply', '_mesh.ply')
 
-    downpcd = open_downsample_pcd(pcd_path)
+    downpcd, bbox = open_downsample_pcd(pcd_path)
     mesh = surface_reconstruction(downpcd)
-    o3d.io.write_triangle_mesh(out_path, mesh)
+    mesh_crop = mesh.crop(bbox)
+    o3d.io.write_triangle_mesh(out_path, mesh_crop)
 
 
 # --------------------------------------------------
