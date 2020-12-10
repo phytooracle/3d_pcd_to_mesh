@@ -25,8 +25,7 @@ RUN apt-get install -y wget \
                        libsqlite3-dev \
                        tk-dev \
                        libgdbm-dev \
-                       libc6-dev \
-                       openssl-devel
+                       libc6-dev
 
 RUN wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
 RUN tar -xzf Python-3.8.5.tgz
