@@ -26,7 +26,7 @@ RUN apt-get install -y wget \
                        tk-dev \
                        libgdbm-dev \
                        libc6-dev \
-                       liblzma
+                       liblzma-dev
 
 RUN wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
 RUN tar -xzf Python-3.8.5.tgz
