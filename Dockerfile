@@ -13,13 +13,12 @@ RUN apt-get install -y wget \
                        software-properties-common \
                        apt-utils \
                        libgl1-mesa-glx \
-                    #    ffmpeg \
-                    #    libsm6 \
-                    #    libxext6 \
-                    #    libffi-dev \
-                    #    libbz2-dev \
-                    #    zlib1g-dev \
-                    #    openssl-devel
+                       ffmpeg \
+                       libsm6 \
+                       libxext6 \
+                       libffi-dev \
+                       libbz2-dev \
+                       zlib1g-dev \
                        libreadline-gplv2-dev \
                        libncursesw5-dev \
                        libssl-dev \
@@ -27,7 +26,7 @@ RUN apt-get install -y wget \
                        tk-dev \
                        libgdbm-dev \
                        libc6-dev \
-                       libffi-dev
+                       openssl-devel
 
 RUN wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz
 RUN tar -xzf Python-3.8.5.tgz
